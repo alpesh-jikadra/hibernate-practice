@@ -11,9 +11,13 @@
 		<property name="hibernate.connection.username">infibeam</property>
 		<property name="hibernate.connection.password">infibeam</property>
 		<property name="show_sql">true</property>
-
+		
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		
+		
 		<!-- <mapping resource="Employee.hbm.xml" /> -->
 		<!-- <mapping resource="Address.hbm.xml" /> -->
-
+		<mapping resource="Config.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

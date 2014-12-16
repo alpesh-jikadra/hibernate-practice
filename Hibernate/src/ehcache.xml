@@ -1,0 +1,11 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="true"
+	monitoring="autodetect" dynamicConfig="true">
+	<diskStore path="/tmp/cache" />
+	<defaultCache maxElementsInMemory="0" eternal="true"
+		timeToIdleSeconds="0" timeToLiveSeconds="120" overflowToDisk="true" />
+
+	<cache name="com.demo.pojo.Config" maxElementsInMemory="0" eternal="true"
+		timeToIdleSeconds="0" timeToLiveSeconds="0" overflowToDisk="false" />
+
+</ehcache>

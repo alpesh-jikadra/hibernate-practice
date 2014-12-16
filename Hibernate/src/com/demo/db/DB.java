@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 
+import com.demo.pojo.Config;
 import com.demo.pojo.Employee;
 
 public class DB {

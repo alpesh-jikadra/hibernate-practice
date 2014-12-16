@@ -16,3 +16,11 @@ CREATE TABLE `address` (
   `country` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
+
+CREATE TABLE `config` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `key` varchar(16) DEFAULT NULL,
+  `value` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_key` (`key`)
+) ENGINE=InnoDB;
