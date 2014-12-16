@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.demo.pojo.Address" table="address">
+		<meta attribute="class-description">
+			This class contains the employee detail.
+		</meta>
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+		<property name="address" column="address1" type="string" />
+		<property name="city" column="city" type="string" />
+		<property name="state" column="state" type="string" />
+		<property name="zip" column="zip" type="string" />
+		<property name="country" column="country" type="string" />
+	</class>
+</hibernate-mapping>
