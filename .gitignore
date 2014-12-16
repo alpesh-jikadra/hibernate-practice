@@ -4,3 +4,4 @@ target
 .settings
 **/skins/**/*-min.css
 .class
+**/build/**
