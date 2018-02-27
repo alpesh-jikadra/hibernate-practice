@@ -20,6 +20,7 @@ public class HibernateUtil {
 			    
 			 return buildSessionFactory;
 		}catch(Exception e){
+			e.printStackTrace();
 			throw new RuntimeException("Not able to create sessionfactory");
 		}
 	}

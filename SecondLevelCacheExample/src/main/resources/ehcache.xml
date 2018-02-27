@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+  
+
+  <diskStore path="C:/CPRO/Temp/ehcache" />
+<defaultCache maxElementsInMemory="1" eternal="true"/>  
+  	
+  	<cache name="employee"  eternal="false"
+		timeToIdleSeconds="100" timeToLiveSeconds="100" diskPersistent="false">
+	</cache>
+	
+</ehcache>  
