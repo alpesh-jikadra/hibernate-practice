@@ -17,7 +17,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Table(name="employee")
-@Cache(usage=CacheConcurrencyStrategy.READ_WRITE, region="employee")
+//@Cache(usage=CacheConcurrencyStrategy.READ_WRITE, region="employee")
 public class Employee implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -46,7 +46,7 @@ public class Employee implements Serializable {
 		this.name = name;
 	}
 	
-	@Cache(usage=CacheConcurrencyStrategy.READ_ONLY)
+//	@Cache(usage=CacheConcurrencyStrategy.READ_ONLY)
 	@OneToMany
 	@JoinColumn(name="employee_id")
 	public Set<EmployeeMobile> getMobiles() {

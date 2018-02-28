@@ -13,12 +13,18 @@ import net.sf.ehcache.CacheManager;
 
 public class Demo {
 //http://www.baeldung.com/hibernate-second-level-cache
+	
 	SessionFactory sessionFactory = null;
-
+	HibernateUtil util = new HibernateUtil("hibernateWithSecondLevelCache.cfg.xml");
+	
 	public Demo(){
-		sessionFactory = HibernateUtil.getSessionFactory();
+		sessionFactory = util.getSessionFactory();
 	}
 
+	public void shutdown(){
+		util.shutDown();
+	}
+	
 	public void insert() {
 
 		Session currentSession = sessionFactory.openSession();
@@ -54,8 +60,9 @@ public class Demo {
 		print(get(6));
 	}
 	public static void main(String[] args) {
+		Demo demo = new Demo();
 		try {
-			Demo demo = new Demo();
+			
 			Session session = demo.getSession();
 			demo.readExample(session);
 //			demo.queryCacheExample(session);
@@ -95,7 +102,7 @@ public class Demo {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			HibernateUtil.shutDown();
+			demo.shutdown();
 		}
 
 	}

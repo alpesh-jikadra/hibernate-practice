@@ -7,28 +7,33 @@ import org.hibernate.service.ServiceRegistry;
 
 public class HibernateUtil {
 
-	private static final SessionFactory sessionFactory = buildSessionFactory();
+	private SessionFactory sessionFactory = null;
 
-	private static SessionFactory buildSessionFactory() {
-		try{
-			Configuration configure = new Configuration().configure();
-//			configure.addAnnotatedClass(Employee.class);
+	public HibernateUtil(String configFile) {
+		super();
+		buildSessionFactory("hibernateWithSecondLevelCache.cfg.xml");
+	}
+
+	private void buildSessionFactory(String propertyFile) {
+		try {
+			Configuration configure = new Configuration().configure(propertyFile);
 			
-			 ServiceRegistry serviceRegistry =new StandardServiceRegistryBuilder().applySettings(configure.getProperties()).build(); 
+			ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
+					.applySettings(configure.getProperties()).build();
 
-			 SessionFactory buildSessionFactory = configure.buildSessionFactory(serviceRegistry);
-			    
-			 return buildSessionFactory;
-		}catch(Exception e){
+			sessionFactory = configure.buildSessionFactory(serviceRegistry);
+
+		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException("Not able to create sessionfactory");
 		}
 	}
-	
-	public static SessionFactory getSessionFactory(){
+
+	public SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
-	public static void shutDown(){
+
+	public void shutDown() {
 		sessionFactory.close();
 	}
-}	
+}
